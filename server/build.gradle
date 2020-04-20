@@ -1,0 +1,18 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+mainClassName = "org.example.event.EventServer"
+
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    compile project(':api')
+}

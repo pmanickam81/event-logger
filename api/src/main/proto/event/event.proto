@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package event;
+
+option java_package = "org.example.event";
+
+option java_multiple_files = true;
+
+message Event{
+  string id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message EventRequest{
+  Event event = 1;
+}
+
+message EventResponse{
+  Event event  = 1;
+}
+
+service EventService{
+  rpc sendEvent(EventRequest) returns(EventResponse) {}
+}

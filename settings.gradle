@@ -1,0 +1,5 @@
+rootProject.name = 'event-logger'
+include 'api'
+include 'server'
+include 'client'
+
